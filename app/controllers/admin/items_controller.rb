@@ -14,7 +14,7 @@ class Admin::ItemsController < ApplicationController
     def create
         item = Item.new(item_parame)
         item.save
-        redlrect_to item_path(item.id)
+        redlrect_to items_path
     end
     
     def edit

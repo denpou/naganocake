@@ -1,22 +1,39 @@
-<h1>商品新規登録</h1>
-<%= form_with model:@item, local:true do |f| %>
+<h4 class="font-weight-bold p-1 mb-2">商品新規登録</h4>
+<%= form_with model:@items, local:true do |f| %>
+  <div class="container">
+    <div class="mx-auto col-md-6">
+<!---->
+      <nav class="navbar navbar-expand-lg navbar-light">
+       <h4 class="font-weight-bold p-1 mb-2 bg-light">商品画像</h4>
+       <%= f.file_field :image_id %>
+      </nav>
+<!---->
+      <nav class="navbar navbar-expand-lg navbar-light">
+       <h4 class="font-weight-bold p-1 mb-2 bg-light">商品名</h4>
+       <%= f.text_field :name %>
+      </nav>
+<!---->
+      <nav class="navbar navbar-expand-lg navbar-light">
+       <h4 class="font-weight-bold p-1 mb-2 bg-light">商品説明</h4>
+       <%= f.text_area :introduction %>
+      </nav>
+<!---->
+      <nav class="navbar navbar-expand-lg navbar-light">
+       <h4 class="font-weight-bold p-1 mb-2 bg-light">ジャンル</h4>
+       <%= f.select :genre_id, [["ケーキ", "ケーキ"], ["アイス", "アイス"],["プリン","プリン"]], include_blank: "--選択して下さい--" %>
+      </nav>
+<!---->
+      <nav class="navbar navbar-expand-lg navbar-light">
+       <h4 class="font-weight-bold p-1 mb-2 bg-light">税抜価格</h4>
+       <%= f.text_field :price %>円
+      </nav>
+<!---->
+　　　<nav class="navbar navbar-expand-lg navbar-light">
+       <h4 class="font-weight-bold p-1 mb-2 bg-light">販売ステータス</h4>
+      </nav>
+<!---->
+       <br><%= f.submit '新規登録' %>
 
-  <h4>商品画像</h4>
-  <%= f.text_field :image_id %>
-
-  <h4>商品名</h4>
-  <%= f.text_field :name %>
-
-  <h4>商品説明</h4>
-  <%= f.text_area :introduction %>
-  
-  ジャンル
-  
-  税抜価格
-  <%= f.text_field :price %>円
-  
-  販売ステータス
-
-  <%= f.submit '新規登録' %>
-
-<% end %>
+    </div>
+  </div>
+<% end %>  
