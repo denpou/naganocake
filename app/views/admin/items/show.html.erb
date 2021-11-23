@@ -1,0 +1,24 @@
+<h4 class="font-weight-bold p-1 mb-2">商品詳細</h4>
+ <div class="row">
+   <div class="container">
+     <div class="mx-auto col-md-6">
+       <table class="table table-striped">
+       <tr>
+       <td>
+       <%= attachment_image_tag @item, :image_id %>
+       </td>
+       <!---->
+       <td>
+       <h5 class="font-weight-bold p-1 mb-2 bg-light">商品名:<%= @item.name %></h5><br>
+       <h5 class="font-weight-bold p-1 mb-2 bg-light">商品説明:<%= @item.introduction %></h5><br>
+       <h5 class="font-weight-bold p-1 mb-2 bg-light">ジャンル:<%= @item.genre_id %></h5><br>
+       <h5 class="font-weight-bold p-1 mb-2 bg-light">税込価格:<%= @item.add_tex_price.to_s(:delimited) %>円</h5><br>
+       <h5 class="font-weight-bold p-1 mb-2 bg-light">（税抜価格）:<%= @item.price %>円</h5><br>
+       <h5 class="font-weight-bold p-1 mb-2 bg-light">販売ステータス:<%= @item.is_active %></h5>
+       <%= link_to "編集する", edit_admins_item_path(@item), class="p-3 mb-2 bg-success text-white" %>
+       </td>
+       </tr>
+       </table>
+     </div>
+   </div>
+</div>

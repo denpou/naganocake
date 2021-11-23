@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <h4 class="font-weight-bold p-1 mb-2 bg-light"><span>商品一覧</span></h4>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav l-aumto">
           <h1><%= link_to "⊕", new_admin_item_path,class: "font-weight-bold p-1 mb-2 text-secondary " %> </h1>
         </ul>
       </div>
@@ -13,19 +13,31 @@
 
 <br>
 <body>
-  <table class="table table-striped">
-   <nav class="navbar navbar-expand-lg navbar-dark">
-    <ul class="navbar-nav col-md-4 margin:auto">
-    <div class="container text-left">
-      <h4 class="font-weight-bold p-1 mb-2 bg-light">商品ID</h4>
-      <h4 class="font-weight-bold p-1 mb-2 bg-light">商品名</h4>
-    </div>
-    <div class="container text-center">
-      <h4 class="font-weight-bold p-1 mb-2 bg-light">中央</h4>
-      <h4 class="font-weight-bold p-1 mb-2 bg-light">中央</h4>
-    </div>
-    </ul>
-    
-  </nav>
+  <div class='row col-md-10 l-aumto'>
+  <table class="table table-striped font-weight-bold p-1 mb-2 bg-light">
+  <thead>
+    <tr>
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>税抜価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= link_to admins_item_path(item)%>
+          <%= item.name %>
+          <% end %>
+      </td>
+      <td><%= item.price %></td>
+      <td><%= item.genre.id %></td>
+      <td><%= item.is_active %></td>
+    </tr> 
+    <% end %>
+  </tbody>
   </table>
+  </div>
 </body>
